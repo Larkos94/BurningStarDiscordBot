@@ -1,6 +1,7 @@
 import os
 
 import discord
+from discord.ext import commands
 
 from dotenv import load_dotenv
 
@@ -8,12 +9,17 @@ load_dotenv()
 
 TOKEN = os.getenv('DISCORD_TOKEN')
 
-client = discord.Client(intents=discord.Intents.default())
+#intents = discord.Intents.messages
+
+intents = discord.Intents.default()
+intents.message_content = True
+
+client = commands.Bot(command_prefix='/', intents=intents)
 
 @client.event
 async def on_message(message):
-    if 'happy birthday' in message.content.lower():
-        await message.channel.send('Happy Birthday! 🎈🎉')
+    if 'ping' in message.content.lower():
+        await message.channel.send('Pong!')
 
 client.run(TOKEN)
 
