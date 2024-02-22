@@ -1,18 +1,18 @@
 __package__ = "cogs"
 
-import asyncio
 import os
-import discord
-from discord.ext import commands
+import nextcord
+from nextcord.ext import commands
 
 class SignupCog(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
+        self._last_member = None
 
-    @commands.command()
+    @nextcord.slash_command(name = 'signup', description = 'Sign up for the event', guild_ids = [os.getenv('GUILD_ID')])
     async def signup(self, ctx):
         await ctx.send('You have signed up!')
 
 
-async def setup(bot):
-    await bot.add_cog(SignupCog(bot))
+def setup(bot : commands.Bot):
+    bot.add_cog(SignupCog(bot))
