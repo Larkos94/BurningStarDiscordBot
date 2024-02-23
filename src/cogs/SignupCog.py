@@ -2,6 +2,9 @@ __package__ = "cogs"
 
 import os
 import nextcord
+from helpers.TimeHelper import get_timestamp
+from nextcord import Interaction, SlashOption, ChannelType
+from nextcord.abc import GuildChannel
 from nextcord.ext import commands
 
 class SignupCog(commands.Cog):
@@ -9,9 +12,12 @@ class SignupCog(commands.Cog):
         self.bot = bot
         self._last_member = None
 
-    @nextcord.slash_command(name = 'signup', description = 'Sign up for the event', guild_ids = [os.getenv('GUILD_ID')])
-    async def signup(self, ctx):
-        await ctx.send('You have signed up!')
+    @nextcord.slash_command(guild_ids = [int(os.getenv('GUILD_ID'))])
+    async def time(self, interaction: Interaction, 
+                   day: int = SlashOption(name = 'day'),
+                   hour: int = SlashOption(name = 'hour'),
+                   minute: int = SlashOption(name = 'minute')):
+        await interaction.response.send_message(get_timestamp(day, hour, minute))
 
 
 def setup(bot : commands.Bot):
