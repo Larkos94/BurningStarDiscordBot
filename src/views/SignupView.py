@@ -17,7 +17,7 @@ class SignupView():
         return self.embeded
     
     def set_colour(self):
-
+        
         match self.day_name:
 
             case "Monday":

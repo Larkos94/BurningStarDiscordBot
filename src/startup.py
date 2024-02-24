@@ -16,7 +16,6 @@ bot = commands.Bot(
     "/", intents=Intents(messages=True, guilds=True, members=True, message_content=True)
 )
 
-
 def load():
     for filename in os.listdir('./src/cogs'):
         if filename.endswith('.py'):

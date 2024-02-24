@@ -24,7 +24,5 @@ class SignupCog(commands.Cog):
 
         await NormalEventMenu(day, hour, minute).start(interaction = interaction, ctx = None)
         
-        
-
 def setup(bot : commands.Bot):
     bot.add_cog(SignupCog(bot))
