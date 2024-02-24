@@ -4,12 +4,13 @@ import nextcord
 from nextcord import Embed
 
 class EventView():
-    def __init__(self, discord_timestamp, event_day, singups, event_type):
-        self.embeded = Embed(title = "Signup " + event_day, description = "Eventsignup")
+    def __init__(self, discord_timestamp, event_day, singups, event_type, discription):
+        self.embeded = Embed(title = "Event Signup " + event_day)
         self.timestamp = discord_timestamp
         self.event_day = event_day
         self.singups = singups
         self.event_type = event_type
+        self.discription = discription
 
     def get_colour(self):
         match self.event_day:

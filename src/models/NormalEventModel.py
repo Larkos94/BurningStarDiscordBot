@@ -4,8 +4,8 @@ import os
 from models.EventModel import EventModel
 
 class NormalEventModel(EventModel):
-    def __init__(self, day, hour, minute):
-        super().__init__(day, hour, minute, "Normal Event")
+    def __init__(self, day, hour, minute, month, year):
+        super().__init__(day, hour, minute, month, year, "Normal Event")
         self.dancer_solo = []
         self.dancer_duo = []
         self.dancer_group = []
@@ -13,7 +13,6 @@ class NormalEventModel(EventModel):
         self.security = []
         self.mc = []
         self.dj = []
-        self.coordinator = []
         self.backup_dancer = []
         self.backup_staff = []
 
@@ -25,7 +24,6 @@ class NormalEventModel(EventModel):
                 self.security, 
                 self.mc, 
                 self.dj, 
-                self.coordinator, 
                 self.backup_dancer, 
                 self.backup_staff
                 ]

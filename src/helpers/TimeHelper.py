@@ -16,3 +16,9 @@ def get_day_name(day, hour, min, month = datetime.date.today().month, year = dat
         day_name = day_name - 1
     discord_timestamp = datetime.datetime(year, month, day_name, hour, min)
     return calendar.day_name[discord_timestamp.weekday()]
+
+def get_year():
+    return datetime.date.today().year
+
+def get_month():
+    return datetime.date.today().month
