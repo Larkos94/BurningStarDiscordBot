@@ -10,7 +10,7 @@ from models.NormalEventModel import NormalEventModel
 
 class NormalEventMenu(menus.ButtonMenu):
     def __init__(self, day, hour, minute):
-        super().__init__()
+        super().__init__(timeout=1209600)
         self.day = day
         self.hour = hour
         self.minute = minute
