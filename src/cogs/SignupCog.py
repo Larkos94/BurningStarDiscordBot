@@ -7,8 +7,6 @@ from nextcord.abc import GuildChannel
 from nextcord.ext import commands
 from nextcord.ext import menus
 
-from helpers.TimeHelper import get_timestamp, get_day_name
-from views.SignupView import SignupView
 from menues.NormalEventMenu import NormalEventMenu
 
 class SignupCog(commands.Cog):
