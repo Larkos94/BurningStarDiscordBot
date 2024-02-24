@@ -11,5 +11,8 @@ def get_timestamp(day, hour, min, month = datetime.date.today().month, year = da
     return discord_timestamp
 
 def get_day_name(day, hour, min, month = datetime.date.today().month, year = datetime.date.today().year ):
-    discord_timestamp = datetime.datetime(year, month, day, hour, min)
+    day_name = day
+    if hour-6 < 0:
+        day_name = day_name - 1
+    discord_timestamp = datetime.datetime(year, month, day_name, hour, min)
     return calendar.day_name[discord_timestamp.weekday()]

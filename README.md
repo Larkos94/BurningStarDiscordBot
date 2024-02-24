@@ -5,3 +5,5 @@ https://realpython.com/how-to-make-a-discord-bot-python/#how-to-make-a-discord-b
 
 https://docs.disnake.dev/en/stable/
 
+https://menus.docs.nextcord.dev/en/stable/
+
