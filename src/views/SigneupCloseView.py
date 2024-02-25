@@ -17,7 +17,7 @@ class SigneupCloseView(EventView):
         self.embeded.add_field(name = "Your local time: ", value = self.timestamp, inline=False)
         self.embeded.add_field(name = "Event Type", value = self.event_type, inline=False)
         if self.discription != "":
-            self.embeded.add_field(name = "Event details", value = '', inline=False)
+            self.embeded.add_field(name = "Event details", value = self.discription, inline=False)
 
         self.embeded.add_field(name = "+++++++++++++++++++++++++++++++++++++++++++++++++", value=" ", inline=False)
         index = 0
