@@ -11,6 +11,10 @@ class EventView():
         self.singups = singups
         self.event_type = event_type
         self.discription = discription
+        self.roles = []
+
+    def get_roles(self):
+        return self.roles
 
     def get_colour(self):
         match self.event_day:

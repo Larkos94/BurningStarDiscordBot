@@ -15,7 +15,7 @@ class SignupCog(commands.Cog):
         self.bot = bot
         self._last_member = None
 
-    @nextcord.slash_command(guild_ids = [int(os.getenv('GUILD_ID'))])
+    @nextcord.slash_command(guild_ids = [int(os.getenv('GUILD_ID')), int(os.getenv('GUILD_ID2'))])
     async def signup_normal(self, interaction: Interaction, 
                      day: int = SlashOption(name = 'day'),
                      hour: int = SlashOption(name = 'hour'),

@@ -6,6 +6,7 @@ from nextcord import Interaction
 from nextcord.ext import menus
 
 from views.NormalEventView import NormalEventView
+from views.SigneupCloseView import SigneupCloseView
 from models.NormalEventModel import NormalEventModel
 
 class NormalEventMenu(menus.ButtonMenu):
@@ -81,8 +82,10 @@ class NormalEventMenu(menus.ButtonMenu):
     @nextcord.ui.button(emoji="\N{KEY}", style=nextcord.ButtonStyle.green)
     async def on_close(self, button, interaction):
         if nextcord.utils.get(interaction.guild.roles, name=os.getenv('SIGNUP_ROLE')) in interaction.user.roles:
-            #view = NormalEventView(self.model.get_event_timestamp(), self.model.get_event_day(), self.model.get_signups(), self.model.get_event_type())
-            await self.message.edit(content=f"Signups where closed by {interaction.user}!")
+            view_old = NormalEventView(self.model.get_event_timestamp(), self.model.get_event_day(), self.model.get_signups(), self.model.get_event_type(), self.discription)
+            view = SigneupCloseView(self.model.get_event_timestamp(), self.model.get_event_day(), self.model.get_signups(), 
+                                    self.model.get_event_type(), self.discription, view_old.get_roles())
+            await self.message.edit(embed=view.embeded_create())
             self.stop()
         else:
             pass
