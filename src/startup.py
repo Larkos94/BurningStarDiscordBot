@@ -24,8 +24,6 @@ def load():
             bot.load_extension(f'cogs.{filename[:-3]}')
             print(f'Loaded {filename[:-3]}')
 
-
-
 load()
 bot.run(TOKEN)
 
