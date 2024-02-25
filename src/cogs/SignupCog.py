@@ -16,7 +16,7 @@ class SignupCog(commands.Cog):
         self.bot = bot
         self._last_member = None
 
-    @nextcord.slash_command(guild_ids = [int(os.getenv('GUILD_ID')), int(os.getenv('GUILD_ID2'))])
+    @nextcord.slash_command(guild_ids = [int(os.getenv('GUILD_ID')), int(os.getenv('GUILD_ID2'))], default_member_permissions= 268435456)
     async def signup_normal(self, interaction: Interaction, 
                      day: int = SlashOption(name = 'day'),
                      hour: int = SlashOption(name = 'hour'),
@@ -33,7 +33,7 @@ class SignupCog(commands.Cog):
             year = get_year()
         await NormalEventMenu(day, hour, minute, month, year, discription).start(interaction = interaction, ctx = None)
         
-    @nextcord.slash_command(guild_ids = [int(os.getenv('GUILD_ID')), int(os.getenv('GUILD_ID2'))])
+    @nextcord.slash_command(guild_ids = [int(os.getenv('GUILD_ID')), int(os.getenv('GUILD_ID2'))], default_member_permissions= 268435456)
     async def signup_solo(self, interaction: Interaction, 
                      day: int = SlashOption(name = 'day'),
                      hour: int = SlashOption(name = 'hour'),
