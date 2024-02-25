@@ -3,12 +3,11 @@ __package__ = "models"
 import os
 from models.EventModel import EventModel
 
-class NormalEventModel(EventModel):
+class SoloEventModel(EventModel):
     def __init__(self, day, hour, minute, month, year):
-        super().__init__(day, hour, minute, month, year, "Normal Event")
+        super().__init__(day, hour, minute, month, year, "Solo Event")
         self.dancer_solo = []
-        self.dancer_duo = []
-        self.dancer_group = []
+        self.dancer_second_solo = []
         self.dancer_floater = []
         self.security = []
         self.mc = []
@@ -18,8 +17,7 @@ class NormalEventModel(EventModel):
 
     def get_signups(self):
         return [self.dancer_solo, 
-                self.dancer_duo, 
-                self.dancer_group, 
+                self.dancer_second_solo, 
                 self.dancer_floater, 
                 self.security, 
                 self.mc, 
@@ -35,18 +33,11 @@ class NormalEventModel(EventModel):
         self.dancer_solo.append(user)
         return True
     
-    def signup_duo(self, user):
-        if user in self.dancer_duo:
-            self.dancer_duo.remove(user)
+    def signup_second_solo(self, user):
+        if user in self.dancer_second_solo:
+            self.dancer_second_solo.remove(user)
             return False
-        self.dancer_duo.append(user)
-        return True
-    
-    def signup_group(self, user):
-        if user in self.dancer_group:
-            self.dancer_group.remove(user)
-            return False
-        self.dancer_group.append(user)
+        self.dancer_second_solo.append(user)
         return True
 
     def signup_floater(self, user):
