@@ -85,7 +85,7 @@ class NormalEventMenu(menus.ButtonMenu):
             view_old = NormalEventView(self.model.get_event_timestamp(), self.model.get_event_day(), self.model.get_signups(), self.model.get_event_type(), self.discription)
             view = SigneupCloseView(self.model.get_event_timestamp(), self.model.get_event_day(), self.model.get_signups(), 
                                     self.model.get_event_type(), self.discription, view_old.get_roles())
-            await self.message.edit(embed=view.embeded_create())
+            await self.message.edit(content=f"Event was closed by {interaction.user}!", embed=view.embeded_create())
             self.stop()
         else:
             pass
