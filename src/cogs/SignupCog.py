@@ -31,7 +31,9 @@ class SignupCog(commands.Cog):
             month = get_month()
         if year is None:
             year = get_year()
-        await NormalEventMenu(day, hour, minute, month, year, discription).start(interaction = interaction, ctx = None)
+        normal_event = NormalEventMenu(self.bot, day, hour, minute, month, year, discription)
+        await normal_event.start(interaction = interaction, ctx = None)
+        normal_event.register_id()
         
     @nextcord.slash_command(guild_ids = [int(os.getenv('GUILD_ID')), int(os.getenv('GUILD_ID2'))], default_member_permissions= 268435456)
     async def signup_solo(self, interaction: Interaction, 
@@ -48,7 +50,9 @@ class SignupCog(commands.Cog):
             month = get_month()
         if year is None:
             year = get_year()
-        await SoloEventMenu(day, hour, minute, month, year, discription).start(interaction = interaction, ctx = None)
+        solo_event = SoloEventMenu(self.bot, day, hour, minute, month, year, discription)
+        await solo_event.start(interaction = interaction, ctx = None)
+        solo_event.register_id()
 
 def setup(bot : commands.Bot):
     bot.add_cog(SignupCog(bot))
