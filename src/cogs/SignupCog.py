@@ -1,7 +1,6 @@
 __package__ = "cogs"
 
 import os
-from copy import deepcopy
 import nextcord
 from nextcord import Interaction, SlashOption, ChannelType, Embed
 from nextcord.abc import GuildChannel
