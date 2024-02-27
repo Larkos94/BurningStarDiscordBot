@@ -12,7 +12,7 @@ class PublicCog(commands.Cog):
         self.bot = bot
         self._last_member = None
 
-    @nextcord.slash_command(guild_ids = [int(os.getenv('GUILD_ID')), int(os.getenv('GUILD_ID2'))])
+    @nextcord.slash_command(guild_ids = [int(os.getenv('GUILD_ID'))])
     async def time(self, interaction: Interaction, 
                    day: int = SlashOption(name = 'day'),
                    hour: int = SlashOption(name = 'hour'),
