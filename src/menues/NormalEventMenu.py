@@ -113,6 +113,17 @@ class NormalEventMenu(menus.ButtonMenu):
         else:
             pass
 
+    @nextcord.ui.button(label='Photographer', style=nextcord.ButtonStyle.primary)
+    async def on_photographer(self, button, interaction):
+        if self.closed is False:
+            self.model.signup_photographer(interaction.user)
+            view = NormalEventView(self.model.get_event_timestamp(), self.model.get_event_day(), self.model.get_signups(), self.model.get_event_type(), self.discription)
+            channel = self.bot.get_channel(self.discord_channel_id)
+            message = await channel.fetch_message(self.discord_message_id)
+            await message.edit(embed=view.embeded_create())
+        else:
+            pass
+
     @nextcord.ui.button(label='Backup Dancer', style=nextcord.ButtonStyle.primary)
     async def on_backup_dancer(self, button, interaction):
         if self.closed is False:

@@ -86,6 +86,15 @@ class SoloEventMenu(menus.ButtonMenu):
         else:
             pass
 
+    @nextcord.ui.button(label='Photographer', style=nextcord.ButtonStyle.primary)
+    async def on_photographer(self, button, interaction):
+        if self.closed is False:
+            self.model.signup_photographer(interaction.user)
+            view = SoloEventView(self.model.get_event_timestamp(), self.model.get_event_day(), self.model.get_signups(), self.model.get_event_type(), self.discription)
+            await self.send_message(view)
+        else:
+            pass
+
     @nextcord.ui.button(label='Backup Dancer', style=nextcord.ButtonStyle.primary)
     async def on_backup_dancer(self, button, interaction):
         if self.closed is False:

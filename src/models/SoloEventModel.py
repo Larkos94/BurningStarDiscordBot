@@ -12,6 +12,7 @@ class SoloEventModel(EventModel):
         self.security = []
         self.mc = []
         self.dj = []
+        self.photographer = []
         self.backup_dancer = []
         self.backup_staff = []
 
@@ -22,6 +23,7 @@ class SoloEventModel(EventModel):
                 self.security, 
                 self.mc, 
                 self.dj, 
+                self.photographer,
                 self.backup_dancer, 
                 self.backup_staff
                 ]
@@ -66,6 +68,13 @@ class SoloEventModel(EventModel):
             self.dj.remove(user)
             return False
         self.dj.append(user)
+        return True
+    
+    def signup_photographer(self, user):
+        if user in self.photographer:
+            self.photographer.remove(user)
+            return False
+        self.photographer.append(user)
         return True
     
     def signup_backup_dancer(self, user):

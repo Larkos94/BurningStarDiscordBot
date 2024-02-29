@@ -8,7 +8,7 @@ from views.EventView import EventView
 class NormalEventView(EventView):
     def __init__(self, discord_timestamp, event_day, singups, event_type, discription):
         super().__init__(discord_timestamp, event_day, singups, event_type, discription)
-        self.roles = ["Solo", "Duo", "Group", "Floater", "Security", "Host", "DJ", "Backup Dancer", "Backup Staff"]
+        self.roles = ["Solo", "Duo", "Group", "Floater", "Security", "Host", "DJ", "Photographer", "Backup Dancer", "Backup Staff"]
 
     def get_roles(self):
         return self.roles
@@ -24,7 +24,6 @@ class NormalEventView(EventView):
         index = 0
         first = False
         for singup in self.singups:
-            
             
             user_string = self.generate_user_string(singup)
             self.embeded.add_field(name = self.roles[index] + " ["+ str(len(singup))+ "]", value = user_string, inline=first)

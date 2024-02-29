@@ -8,7 +8,7 @@ from views.EventView import EventView
 class SoloEventView(EventView):
     def __init__(self, discord_timestamp, event_day, singups, event_type, discription):
         super().__init__(discord_timestamp, event_day, singups, event_type, discription)
-        self.roles = ["Solo", "Second Solo", "Floater", "Security", "Host", "DJ", "Backup Dancer", "Backup Staff"]
+        self.roles = ["Solo", "Second Solo", "Floater", "Security", "Host", "DJ", "Photographer", "Backup Dancer", "Backup Staff"]
 
     def get_roles(self):
         return self.roles
