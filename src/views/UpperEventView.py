@@ -6,9 +6,10 @@ from nextcord import Embed
 from views.EventView import EventView
 
 class UpperEventView(EventView):
-    def __init__(self, discord_timestamp, event_day, singups, event_type, discription):
+    def __init__(self, discord_timestamp, event_day, singups, event_type, discription, restore_code=None):
         super().__init__(discord_timestamp, event_day, singups, event_type, discription)
         self.roles = ["Host Account", "Coordinator"]
+        self.restore_code = restore_code
 
     def get_roles(self):
         return self.roles
@@ -34,6 +35,8 @@ class UpperEventView(EventView):
                 first = False
 
         self.embeded.add_field(name = "+++++++++++++++++++++++++++++++++++++++++++++++++", value=" ", inline=False)
+
+        self.embeded.add_field(name = "Restorecode: ", value = self.restore_code, inline=False)
 
         return self.embeded
     

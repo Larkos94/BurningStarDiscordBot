@@ -3,7 +3,8 @@ __package__ = "models"
 from helpers.TimeHelper import get_timestamp, get_day_name
 
 class EventModel:
-    def __init__(self, day, hour, minute,month, year, event_type):
+    def __init__(self, day, hour, minute,month, year, event_type, data, discription = ""):
+        self.discription = discription
         self.day = day
         self.hour = hour
         self.minute = minute

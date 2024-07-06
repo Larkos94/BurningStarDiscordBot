@@ -6,10 +6,11 @@ from nextcord import Embed
 from views.EventView import EventView
 
 class SigneupCloseView(EventView):
-    def __init__(self, discord_timestamp, event_day, singups, event_type, discription, roles):
+    def __init__(self, discord_timestamp, event_day, singups, event_type, discription, roles, restore_code=None):
         super().__init__(discord_timestamp, event_day, singups, event_type, discription)
         self.roles = roles
         self.embeded = Embed(title = "Event Signup for " + event_day + " is closed!")
+        self.restore_code = restore_code
 
     def embeded_create(self):
         self.embeded.colour = self.get_colour()
@@ -33,7 +34,8 @@ class SigneupCloseView(EventView):
                 first = False
 
         self.embeded.add_field(name = "+++++++++++++++++++++++++++++++++++++++++++++++++", value=" ", inline=False)
-        self.embeded.add_field(name = "If you still like to join DM: ", value = "Firedragon, Lia or Larkos")
+        self.embeded.add_field(name = "If you still like to join DM: ", value = "Firedragon, Lia or the Coordinator", inline=False)
+        self.embeded.add_field(name = "Restorecode: ", value = self.restore_code, inline=False)
 
         return self.embeded
     
