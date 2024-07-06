@@ -140,6 +140,6 @@ class SoloEventModel(EventModel):
             'discription': self.discription
         }
         encoded = jsonpickle.encode(data)
-        with open(self.path + self.filename + '.json', 'w') as f:
+        with open(self.path + self.filename + '.json', 'w+') as f:
             f.write(encoded)
 
