@@ -19,7 +19,7 @@ class SoloEventMenu(menus.ButtonMenu):
         self.year = year
         self.discription = discription
         self.data = data
-        self.model = SoloEventModel(day, hour, minute, month, year, data)
+        self.model = SoloEventModel(day, hour, minute, month, year, data, discription)
         self.restore_code = self.model.get_filename()
         self.discord_message_id = None
         self.discord_channel_id = None

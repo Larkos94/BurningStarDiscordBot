@@ -24,7 +24,7 @@ class NormalEventMenu(menus.ButtonMenu):
         self.discord_channel_id = None
         self.closed = False
 
-        self.model = NormalEventModel(day, hour, minute, month, year, data)
+        self.model = NormalEventModel(day, hour, minute, month, year, data, discription)
         self.restore_code = self.model.get_filename()
 
     async def send_initial_message(self, ctx, channel):
