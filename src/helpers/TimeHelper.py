@@ -14,6 +14,12 @@ def get_day_name(day, hour, min, month = datetime.date.today().month, year = dat
     day_name = day
     if hour-6 < 0:
         day_name = day_name - 1
+        if day == 1:
+            month = month - 1
+            if month == 0:
+                month = 12
+                year = year - 1
+            day_name = calendar.monthrange(year, month)[1]
     discord_timestamp = datetime.datetime(year, month, day_name, hour, min)
     return calendar.day_name[discord_timestamp.weekday()]
 
