@@ -35,3 +35,10 @@ class EventView():
                 return nextcord.Colour.magenta()
             
         return nextcord.Colour.default()
+    
+    def generate_user_string(self, userlist):
+        user_string = ""
+        for user in userlist:
+            user_string += str(user) + "\n"
+        user_string += "------------\n"
+        return user_string

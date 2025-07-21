@@ -12,6 +12,7 @@ from helpers.FileHelper import check_file, get_file
 from menues.NormalEventMenu import NormalEventMenu
 from menues.SoloEventMenu import SoloEventMenu
 from menues.UpperEventMenu import UpperEventMenu
+from menues.FloatEventMenu import FloatEventMenu
 
 class SignupCog(commands.Cog):
     def __init__(self, bot):
@@ -58,6 +59,26 @@ class SignupCog(commands.Cog):
         solo_event.register_id()
 
     @nextcord.slash_command(guild_ids = [int(os.getenv('GUILD_ID'))], default_member_permissions= 268435456)
+    async def signup_float(self, interaction: Interaction, 
+                     day: int = SlashOption(name = 'day'),
+                     hour: int = SlashOption(name = 'hour'),
+                     minute: int = SlashOption(name = 'minute'),
+                     month: int = SlashOption(name = 'month', required = False),
+                     year: int = SlashOption(name = 'year', required = False),
+                     discription: str = SlashOption(name = 'discription', required = False)):
+
+        if discription is None:
+            discription = ""
+        if month is None:
+            month = get_month()
+        if year is None:
+            year = get_year()
+
+        float_event = FloatEventMenu(self.bot, day, hour, minute, month, year, discription)
+        await float_event.start(interaction = interaction, ctx = None)
+        float_event.register_id()
+
+    @nextcord.slash_command(guild_ids = [int(os.getenv('GUILD_ID'))], default_member_permissions= 268435456)
     async def signup_upper(self, interaction: Interaction, 
                      day: int = SlashOption(name = 'day'),
                      hour: int = SlashOption(name = 'hour'),
@@ -86,6 +107,20 @@ class SignupCog(commands.Cog):
         solo_event = SoloEventMenu(self.bot, data['day'], data['hour'], data['minute'], data['month'], data['year'], data['discription'], data)
         await solo_event.start(interaction = interaction, ctx = None)
         solo_event.register_id()
+
+    @nextcord.slash_command(guild_ids = [int(os.getenv('GUILD_ID'))], default_member_permissions= 268435456)
+    async def restore_float(self, interaction: Interaction, 
+                     code: str = SlashOption(name = 'backupcode'),
+                     ):
+        path = './src/files/floatsignup/'
+        if not check_file(path, code):
+            await interaction.response.send_message("No backup found")
+            return
+        
+        data = get_file(path, code)
+        float_event = FloatEventMenu(self.bot, data['day'], data['hour'], data['minute'], data['month'], data['year'], data['discription'], data)
+        await float_event.start(interaction = interaction, ctx = None)
+        float_event.register_id()
 
     @nextcord.slash_command(guild_ids = [int(os.getenv('GUILD_ID'))], default_member_permissions= 268435456)
     async def restore_normal(self, interaction: Interaction, 
