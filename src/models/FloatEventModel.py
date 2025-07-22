@@ -118,7 +118,6 @@ class FloatEventModel(EventModel):
             'discription': self.discription
         }
         encoded = jsonpickle.encode(data)
-        print(f"Saving FloatEventModel to {self.path + self.filename + '.json'}")
         with open(self.path + self.filename + '.json', 'w+') as f:
             f.write(encoded)
 
