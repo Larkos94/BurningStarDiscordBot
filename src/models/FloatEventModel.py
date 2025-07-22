@@ -33,7 +33,9 @@ class FloatEventModel(EventModel):
     def get_filename(self):
         return self.filename
 
-    def get_signups(self):
+    def get_signups(self, safe = True):
+        if safe:
+            self.save_in_file()
         return [self.dancer_floater, 
                 self.security, 
                 self.mc, 
@@ -116,6 +118,7 @@ class FloatEventModel(EventModel):
             'discription': self.discription
         }
         encoded = jsonpickle.encode(data)
+        print(f"Saving FloatEventModel to {self.path + self.filename + '.json'}")
         with open(self.path + self.filename + '.json', 'w+') as f:
             f.write(encoded)
 

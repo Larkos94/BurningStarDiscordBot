@@ -37,7 +37,9 @@ class SoloEventModel(EventModel):
     def get_filename(self):
         return self.filename
 
-    def get_signups(self):
+    def get_signups(self, safe = True):
+        if safe:
+            self.save_in_file()
         return [self.dancer_solo, 
                 self.dancer_second_solo, 
                 self.dancer_floater, 

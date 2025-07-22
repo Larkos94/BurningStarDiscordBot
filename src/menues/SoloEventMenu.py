@@ -40,7 +40,6 @@ class SoloEventMenu(menus.ButtonMenu):
             self.model.signup_solo(interaction.user)
             view = SoloEventView(self.model.get_event_timestamp(), self.model.get_event_day(), self.model.get_signups(), self.model.get_event_type(), self.discription, self.restore_code)
             await self.send_message(view)
-            self.model.save_in_file()
         else:
             pass
 
@@ -50,7 +49,6 @@ class SoloEventMenu(menus.ButtonMenu):
             self.model.signup_second_solo(interaction.user)
             view = SoloEventView(self.model.get_event_timestamp(), self.model.get_event_day(), self.model.get_signups(), self.model.get_event_type(), self.discription, self.restore_code)
             await self.send_message(view)
-            self.model.save_in_file()
         else:
             pass
 
@@ -60,7 +58,6 @@ class SoloEventMenu(menus.ButtonMenu):
             self.model.signup_floater(interaction.user)
             view = SoloEventView(self.model.get_event_timestamp(), self.model.get_event_day(), self.model.get_signups(), self.model.get_event_type(), self.discription, self.restore_code)
             await self.send_message(view)
-            self.model.save_in_file()
         else:
             pass
 
@@ -70,7 +67,6 @@ class SoloEventMenu(menus.ButtonMenu):
             self.model.signup_security(interaction.user)
             view = SoloEventView(self.model.get_event_timestamp(), self.model.get_event_day(), self.model.get_signups(), self.model.get_event_type(), self.discription, self.restore_code)
             await self.send_message(view)
-            self.model.save_in_file()
         else:
             pass
 
@@ -80,7 +76,6 @@ class SoloEventMenu(menus.ButtonMenu):
             self.model.signup_mc(interaction.user)
             view = SoloEventView(self.model.get_event_timestamp(), self.model.get_event_day(), self.model.get_signups(), self.model.get_event_type(), self.discription, self.restore_code)
             await self.send_message(view)
-            self.model.save_in_file()
         else:
             pass
 
@@ -90,7 +85,6 @@ class SoloEventMenu(menus.ButtonMenu):
             self.model.signup_dj(interaction.user)
             view = SoloEventView(self.model.get_event_timestamp(), self.model.get_event_day(), self.model.get_signups(), self.model.get_event_type(), self.discription, self.restore_code)
             await self.send_message(view)
-            self.model.save_in_file()
         else:
             pass
 
@@ -100,7 +94,6 @@ class SoloEventMenu(menus.ButtonMenu):
             self.model.signup_photographer(interaction.user)
             view = SoloEventView(self.model.get_event_timestamp(), self.model.get_event_day(), self.model.get_signups(), self.model.get_event_type(), self.discription, self.restore_code)
             await self.send_message(view)
-            self.model.save_in_file()
         else:
             pass
 
@@ -110,7 +103,6 @@ class SoloEventMenu(menus.ButtonMenu):
             self.model.signup_backup_dancer(interaction.user)
             view = SoloEventView(self.model.get_event_timestamp(), self.model.get_event_day(), self.model.get_signups(), self.model.get_event_type(), self.discription, self.restore_code)
             await self.send_message(view)
-            self.model.save_in_file()
         else:
             pass
 
@@ -120,7 +112,6 @@ class SoloEventMenu(menus.ButtonMenu):
             self.model.signup_backup_staff(interaction.user)
             view = SoloEventView(self.model.get_event_timestamp(), self.model.get_event_day(), self.model.get_signups(), self.model.get_event_type(), self.discription, self.restore_code)
             await self.send_message(view)
-            self.model.save_in_file()
         else:
             pass
 
